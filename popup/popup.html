@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EchoPath Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 350px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      color: #333;
+      font-size: 22px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 13px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .logged-in {
+      text-align: center;
+    }
+
+    .user-info {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .user-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #15803d;
+      margin-bottom: 4px;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: #166534;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .logout-btn {
+      background: #ef4444;
+      margin-top: 16px;
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: none;
+    }
+
+    .status.show {
+      display: block;
+    }
+
+    .status.success {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #86efac;
+    }
+
+    .status.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+    .status.info {
+      background: #dbeafe;
+      color: #1e40af;
+      border: 1px solid #93c5fd;
+    }
+
+    .instruction {
+      margin-top: 16px;
+      padding: 12px;
+      background: #f9fafb;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Login Form (shown when NOT logged in) -->
+    <div id="login-form">
+      <h1>🎯 EchoPath Extension</h1>
+      <p class="subtitle">Login to start batch calling</p>
+
+      <div class="form-group">
+        <label for="extension-id">Extension ID</label>
+        <input type="text" id="extension-id" placeholder="your-extension-id" autocomplete="username">
+      </div>
+
+      <div class="form-group">
+        <label for="extension-pass">Password</label>
+        <input type="password" id="extension-pass" placeholder="your-password" autocomplete="current-password">
+      </div>
+
+      <button id="login-btn">Login</button>
+
+      <div id="status" class="status"></div>
+    </div>
+
+    <!-- Logged In View (shown when logged in) -->
+    <div id="logged-in-view" style="display: none;">
+      <h1>✅ Logged In</h1>
+      <p class="subtitle">Ready to send contacts</p>
+
+      <div class="user-info">
+        <div class="user-name" id="user-name">Loading...</div>
+        <div class="user-email" id="user-email"></div>
+      </div>
+
+      <div class="instruction">
+        <strong>How to use:</strong><br>
+        1. Go to HubSpot contacts page<br>
+        2. Select contacts you want to call<br>
+        3. Click the button that appears<br>
+        4. Done! ✨
+      </div>
+
+      <button class="logout-btn" id="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

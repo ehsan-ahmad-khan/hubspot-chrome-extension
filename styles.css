@@ -1,0 +1,185 @@
+/**
+ * EchoPath Batch Caller - Styles
+ */
+
+/* Floating Batch Call Button */
+#echopath-batch-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2D5BE3;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(45, 91, 227, 0.3);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  z-index: 10000;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  border: none;
+  outline: none;
+}
+
+#echopath-batch-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 91, 227, 0.4);
+  background: #2650CC;
+}
+
+#echopath-batch-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(45, 91, 227, 0.3);
+}
+
+/* Button Icon */
+.echopath-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Button Text */
+.echopath-text {
+  white-space: nowrap;
+}
+
+/* Badge showing selected count */
+.echopath-badge {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 24px;
+  text-align: center;
+}
+
+/* Hidden state */
+#echopath-batch-button.echopath-hidden {
+  display: none;
+}
+
+/* Loading state */
+#echopath-batch-button.echopath-loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+#echopath-batch-button.echopath-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: echopath-spin 0.6s linear infinite;
+}
+
+@keyframes echopath-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Toast Notifications */
+.echopath-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  color: #33475B;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 10001;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  border-left: 4px solid #2D5BE3;
+}
+
+.echopath-toast-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Toast variants */
+.echopath-toast-success {
+  border-left-color: #00A886;
+  background: #F2FBF9;
+}
+
+.echopath-toast-error {
+  border-left-color: #F2545B;
+  background: #FFF4F4;
+}
+
+.echopath-toast-info {
+  border-left-color: #2D5BE3;
+  background: #F5F8FF;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  #echopath-batch-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+  
+  .echopath-text {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .echopath-toast {
+    top: 10px;
+    right: 10px;
+    max-width: calc(100vw - 20px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #echopath-batch-button {
+    border: 2px solid white;
+  }
+  
+  .echopath-toast {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  #echopath-batch-button,
+  .echopath-toast {
+    transition: none;
+  }
+  
+  #echopath-batch-button:hover {
+    transform: none;
+  }
+  
+  @keyframes echopath-spin {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
