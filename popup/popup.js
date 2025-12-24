@@ -2,7 +2,7 @@
  * EchoPath Extension - Simple Login Popup
  */
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://echopath-dev.tensorark.com';
 
 console.log('🌐 [EchoPath Popup] Loaded');
 

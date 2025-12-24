@@ -5,7 +5,7 @@
 
 console.log('🚀 [EchoPath] Content script loaded');
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://echopath-dev.tensorark.com';
 let sendButton = null;
 
 // Wait for page to load
