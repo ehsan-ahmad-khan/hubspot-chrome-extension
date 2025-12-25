@@ -11,7 +11,9 @@
     "*://*.hubspot.com/*",
     "http://localhost:5000/*",
     "https://echopath-dev.tensorark.com/*",
-    "https://echopath.tensorark.com/"
+    "https://echopath.tensorark.com/*",
+    "https://echopath-api-dev.tensorark.com/*",
+    "https://echopath-api.tensorark.com/*"
   ],
   "content_scripts": [
     {
@@ -19,13 +21,28 @@
         "*://*.hubspot.com/*"
       ],
       "js": [
+        "config.js",
         "content.js"
       ],
       "run_at": "document_end"
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config.js"
+      ],
+      "matches": [
+        "*://*.hubspot.com/*"
+      ]
+    }
+  ],
   "action": {
     "default_popup": "popup/popup.html",
+    "default_js": [
+      "config.js",
+      "popup/popup.js"
+    ],
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

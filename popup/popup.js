@@ -2,7 +2,7 @@
  * EchoPath Extension - Simple Login Popup
  */
 
-const API_BASE = 'https://echopath-dev.tensorark.com';
+// API_BASE is imported from config.js (loaded via popup.html)
 
 console.log('🌐 [EchoPath Popup] Loaded');
 

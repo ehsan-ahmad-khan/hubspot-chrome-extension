@@ -5,7 +5,7 @@
 
 console.log('🚀 [EchoPath] Content script loaded');
 
-const API_BASE = 'https://echopath-dev.tensorark.com';
+// API_BASE is imported from config.js (loaded first in manifest.json)
 let sendButton = null;
 
 // Wait for page to load
@@ -67,7 +67,10 @@ function updateButton() {
 
   if (count > 0) {
     sendButton.style.display = 'block';
-    document.getElementById('count').textContent = count;
+    const countElement = document.getElementById('count');
+    if (countElement) {
+      countElement.textContent = count;
+    }
   } else {
     sendButton.style.display = 'none';
   }
